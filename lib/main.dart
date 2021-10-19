@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Container(
       child: Image(
-        image: AssetImage("assets/images/SalonySplash.png"),
+        image: AssetImage("assets/images/salonysplashscreen.jpg"),
         fit: BoxFit.cover,
         width: double.infinity,
         height: double.infinity,

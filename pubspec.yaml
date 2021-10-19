@@ -46,10 +46,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/SalonySplash.png
-    - assets/images/SalonyBackground.png
-    - assets/images/Google.png
-    - assets/images/facebook.png
+    - assets/images/salonysplashscreen.jpg
+    - assets/images/salonybackground.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
