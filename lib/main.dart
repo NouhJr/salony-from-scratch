@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-// import 'package:salony_from_scratch/ui/signIn_screen.dart';
-import 'package:salony_from_scratch/ui/signUp_screen.dart';
+import 'package:salony_from_scratch/ui/signIn_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -31,7 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
       () => Navigator.pushReplacement(
         context,
         MaterialPageRoute(
-          builder: (context) => SignUp(),
+          builder: (context) => SignIn(),
         ),
       ),
     );

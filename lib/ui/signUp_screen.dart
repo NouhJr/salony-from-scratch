@@ -220,7 +220,7 @@ class _SignUpState extends State<SignUp> {
                           children: [
                             Text(
                               "Already have an account?",
-                              style: KAuthSubButtonTextStyle,
+                              style: KAuthMessageTextStyle,
                             ),
                             SizedBox(
                               width: 5.0,

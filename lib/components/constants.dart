@@ -16,6 +16,14 @@ const KAuthSubButtonTextStyle = TextStyle(
   fontSize: 18.0,
   fontWeight: FontWeight.bold,
   color: Colors.black,
+  decoration: TextDecoration.underline,
+);
+
+const KAuthMessageTextStyle = TextStyle(
+  fontFamily: KPrimaryFontFamily,
+  fontSize: 18.0,
+  fontWeight: FontWeight.bold,
+  color: Colors.black,
 );
 
 const KMainWelcomeMessageTextStyle = TextStyle(
