@@ -30,6 +30,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   another_flushbar:
   connectivity:
+  flutter_swiper: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -51,6 +52,14 @@ flutter:
     - assets/images/salonysplashscreen.jpg
     - assets/images/salonybackground.jpg
     - assets/images/salonyWord.png
+    - assets/images/salonyhomebackground.jpg
+    - assets/images/cream.png
+    - assets/images/facialtreatment.png
+    - assets/images/shampoo.png
+    - assets/images/home.png
+    - assets/images/category.png
+    - assets/images/notification.png
+    - assets/images/salonylogoimage.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
