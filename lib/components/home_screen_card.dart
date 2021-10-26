@@ -33,7 +33,7 @@ class CustomCard extends StatelessWidget {
               ),
               image: DecorationImage(
                   image: AssetImage(
-                      "assets/images/cardbackgroundjpg.jpg"), //data from back end.
+                      "assets/images/cardbackground.jpg"), //data from back end.
                   fit: BoxFit.cover),
             ),
           ),

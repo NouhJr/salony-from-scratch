@@ -57,8 +57,12 @@ flutter:
   assets:
     - assets/images/salonysplashscreen.jpg
     - assets/images/salonybackground.jpg
-    - assets/images/salonyWord.png
+    - assets/images/notificationsbackground.jpg
     - assets/images/salonyhomebackground.jpg
+    - assets/images/categoriesbackground.jpg
+    - assets/images/cardbackground.jpg
+    - assets/images/map.jpg
+    - assets/images/salonyWord.png
     - assets/images/cream.png
     - assets/images/facialtreatment.png
     - assets/images/shampoo.png
@@ -70,13 +74,10 @@ flutter:
     - assets/images/facialtreatmentbig.png
     - assets/images/shampoobig.png
     - assets/images/womenhairbig.png
-    - assets/images/categoriesbackground.jpg
-    - assets/images/cardbackgroundjpg.jpg
     - assets/images/botox.png
     - assets/images/bookmark.png
     - assets/images/bookmarkwhite.png
     - assets/images/time.png
-    - assets/images/map.jpg
     - assets/images/location.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
