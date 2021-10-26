@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_swiper/flutter_swiper.dart';
-import 'package:salony_from_scratch/components/card.dart';
-import 'package:salony_from_scratch/components/card_vertical.dart';
+import 'package:salony_from_scratch/components/home_screen_card.dart';
+import 'package:salony_from_scratch/components/home_screen_card_vertical.dart';
 import 'package:salony_from_scratch/components/constants.dart';
 
 class HomeItem extends StatefulWidget {

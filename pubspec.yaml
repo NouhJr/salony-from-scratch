@@ -60,6 +60,18 @@ flutter:
     - assets/images/category.png
     - assets/images/notification.png
     - assets/images/salonylogoimage.png
+    - assets/images/creambig.png
+    - assets/images/facialtreatmentbig.png
+    - assets/images/shampoobig.png
+    - assets/images/womenhairbig.png
+    - assets/images/categoriesbackground.jpg
+    - assets/images/cardbackgroundjpg.jpg
+    - assets/images/botox.png
+    - assets/images/bookmark.png
+    - assets/images/bookmarkwhite.png
+    - assets/images/time.png
+    - assets/images/map.jpg
+    - assets/images/location.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
