@@ -6,6 +6,7 @@ import 'package:salony_from_scratch/components/home_screen_card_vertical.dart';
 import 'package:salony_from_scratch/components/constants.dart';
 import 'package:salony_from_scratch/components/circleAvatar.dart';
 import 'package:salony_from_scratch/components/searchContainer.dart';
+import 'package:salony_from_scratch/ui/user_profile_screen.dart';
 
 class HomeItem extends StatefulWidget {
   @override
@@ -64,11 +65,21 @@ class _HomeItemState extends State<HomeItem> {
               Positioned(
                 top: 15.0,
                 right: 10.0,
-                child: CustomCircleAvatar(
-                  imageSource:
-                      'https://p4.wallpaperbetter.com/wallpaper/322/317/310/look-face-style-portrait-makeup-hd-wallpaper-preview.jpg',
-                  avatarRadius: 20.0,
-                  isAssetImage: false,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (BuildContext context) => UserProfile(),
+                      ),
+                    );
+                  },
+                  child: CustomCircleAvatar(
+                    imageSource:
+                        'https://p4.wallpaperbetter.com/wallpaper/322/317/310/look-face-style-portrait-makeup-hd-wallpaper-preview.jpg',
+                    avatarRadius: 20.0,
+                    isAssetImage: false,
+                  ),
                 ),
               ),
               //Search TextField.
