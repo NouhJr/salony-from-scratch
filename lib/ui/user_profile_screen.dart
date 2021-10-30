@@ -8,7 +8,7 @@ class UserProfile extends StatelessWidget {
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     var oneThirdScreenHeight = screenSize.height / 3;
-    var space = screenSize.height - (oneThirdScreenHeight - 75.0);
+    // var space = screenSize.height - (oneThirdScreenHeight - 75.0);
     return Scaffold(
       body: Stack(
         children: [

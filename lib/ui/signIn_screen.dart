@@ -4,7 +4,9 @@ import 'package:salony_from_scratch/components/constants.dart';
 import 'package:salony_from_scratch/components/textField.dart';
 import 'package:salony_from_scratch/components/registerAndLogInButton.dart';
 import 'package:salony_from_scratch/components/flushBar.dart';
+import 'package:salony_from_scratch/components/custom_page_router_animation.dart';
 import 'package:salony_from_scratch/ui/signUp_screen.dart';
+import 'package:salony_from_scratch/ui/home_screen.dart';
 
 class SignIn extends StatefulWidget {
   @override
@@ -30,6 +32,7 @@ class _SignInState extends State<SignIn> {
     return Scaffold(
       body: Stack(
         children: [
+          //Background Image.
           Container(
             child: Image(
               image: AssetImage("assets/images/salonybackground.jpg"),
@@ -38,6 +41,7 @@ class _SignInState extends State<SignIn> {
               height: double.infinity,
             ),
           ),
+          //Welcome Message.
           Positioned(
             top: 100.0,
             left: 10.0,
@@ -55,6 +59,7 @@ class _SignInState extends State<SignIn> {
               ],
             ),
           ),
+          //Screen Body.
           Positioned(
             top: oneThirdScreenHeight,
             left: 0.0,
@@ -81,6 +86,7 @@ class _SignInState extends State<SignIn> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      //Salony Text Logo.
                       Container(
                         width: 130.0,
                         child: Image(
@@ -91,6 +97,7 @@ class _SignInState extends State<SignIn> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Name Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -102,6 +109,7 @@ class _SignInState extends State<SignIn> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Password Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -127,6 +135,7 @@ class _SignInState extends State<SignIn> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Forget Password Button.
                       Container(
                         child: TextButton(
                           onPressed: () {},
@@ -139,6 +148,7 @@ class _SignInState extends State<SignIn> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Sign In Button.
                       InkWell(
                         onTap: () {
                           signIn();
@@ -154,6 +164,7 @@ class _SignInState extends State<SignIn> {
                       SizedBox(
                         height: 20.0,
                       ),
+                      //Register Button.
                       Container(
                         width: 350.0,
                         child: Row(
@@ -170,8 +181,9 @@ class _SignInState extends State<SignIn> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SignUp(),
+                                  AnimatedRouting(
+                                    childScreen: SignUp(),
+                                    transitionDirection: AxisDirection.left,
                                   ),
                                 );
                               },
@@ -216,6 +228,14 @@ class _SignInState extends State<SignIn> {
         title: "Password field can't be empty !",
         message: "Please enter your password.",
         icons: Icons.warning,
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        AnimatedRouting(
+          childScreen: Home(),
+          transitionDirection: AxisDirection.up,
+        ),
       );
     }
   }

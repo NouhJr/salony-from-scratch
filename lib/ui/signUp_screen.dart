@@ -4,7 +4,9 @@ import 'package:salony_from_scratch/components/constants.dart';
 import 'package:salony_from_scratch/components/textField.dart';
 import 'package:salony_from_scratch/components/registerAndLogInButton.dart';
 import 'package:salony_from_scratch/components/flushBar.dart';
+import 'package:salony_from_scratch/components/custom_page_router_animation.dart';
 import 'package:salony_from_scratch/ui/signIn_screen.dart';
+import 'package:salony_from_scratch/ui/home_screen.dart';
 
 class SignUp extends StatefulWidget {
   @override
@@ -39,6 +41,7 @@ class _SignUpState extends State<SignUp> {
     return Scaffold(
       body: Stack(
         children: [
+          //Background Image.
           Container(
             child: Image(
               image: AssetImage("assets/images/salonybackground.jpg"),
@@ -47,6 +50,7 @@ class _SignUpState extends State<SignUp> {
               height: double.infinity,
             ),
           ),
+          //Back Button.
           Positioned(
             top: 20.0,
             left: 0.0,
@@ -61,6 +65,7 @@ class _SignUpState extends State<SignUp> {
               ),
             ),
           ),
+          //Greeting Message.
           Positioned(
               top: 120.0,
               left: 10.0,
@@ -68,6 +73,7 @@ class _SignUpState extends State<SignUp> {
                 "Welocme to Salony",
                 style: KMainWelcomeMessageTextStyle,
               )),
+          //Screen Body.
           Positioned(
             top: oneThirdScreenHeight,
             left: 0.0,
@@ -94,6 +100,7 @@ class _SignUpState extends State<SignUp> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
+                      //Salony Text Logo.
                       Container(
                         width: 130.0,
                         child: Image(
@@ -104,6 +111,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Name Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -115,6 +123,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Email Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -126,6 +135,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Phone Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -137,6 +147,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Password Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -162,6 +173,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Confirm Password Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -187,6 +199,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 10.0,
                       ),
+                      //Address Text Field.
                       Container(
                         width: 350.0,
                         child: CustomTextField(
@@ -198,6 +211,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 15.0,
                       ),
+                      //Register Button.
                       InkWell(
                         onTap: () {
                           register();
@@ -213,6 +227,7 @@ class _SignUpState extends State<SignUp> {
                       SizedBox(
                         height: 5.0,
                       ),
+                      //Sign In Button.
                       Container(
                         width: 350.0,
                         child: Row(
@@ -229,8 +244,9 @@ class _SignUpState extends State<SignUp> {
                               onPressed: () {
                                 Navigator.push(
                                   context,
-                                  MaterialPageRoute(
-                                    builder: (context) => SignIn(),
+                                  AnimatedRouting(
+                                    childScreen: SignIn(),
+                                    transitionDirection: AxisDirection.left,
                                   ),
                                 );
                               },
@@ -318,6 +334,14 @@ class _SignUpState extends State<SignUp> {
         title: "Address field can't be empty !",
         message: "Please enter your address.",
         icons: Icons.warning,
+      );
+    } else {
+      Navigator.pushReplacement(
+        context,
+        AnimatedRouting(
+          childScreen: Home(),
+          transitionDirection: AxisDirection.up,
+        ),
       );
     }
   }

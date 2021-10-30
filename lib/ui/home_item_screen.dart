@@ -6,6 +6,7 @@ import 'package:salony_from_scratch/components/home_screen_card_vertical.dart';
 import 'package:salony_from_scratch/components/constants.dart';
 import 'package:salony_from_scratch/components/circleAvatar.dart';
 import 'package:salony_from_scratch/components/searchContainer.dart';
+import 'package:salony_from_scratch/components/custom_page_router_animation.dart';
 import 'package:salony_from_scratch/ui/user_profile_screen.dart';
 
 class HomeItem extends StatefulWidget {
@@ -69,8 +70,9 @@ class _HomeItemState extends State<HomeItem> {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(
-                        builder: (BuildContext context) => UserProfile(),
+                      AnimatedRouting(
+                        childScreen: UserProfile(),
+                        transitionDirection: AxisDirection.up,
                       ),
                     );
                   },

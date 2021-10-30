@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:salony_from_scratch/components/constants.dart';
 import 'package:salony_from_scratch/components/circleAvatar.dart';
+import 'package:salony_from_scratch/components/custom_page_router_animation.dart';
+import 'package:salony_from_scratch/ui/user_profile_screen.dart';
 
 class Notifications extends StatefulWidget {
   @override
@@ -46,11 +48,22 @@ class _NotificationsState extends State<Notifications> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CustomCircleAvatar(
-                imageSource:
-                    'https://p4.wallpaperbetter.com/wallpaper/322/317/310/look-face-style-portrait-makeup-hd-wallpaper-preview.jpg',
-                avatarRadius: 30.0,
-                isAssetImage: false,
+              InkWell(
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    AnimatedRouting(
+                      childScreen: UserProfile(),
+                      transitionDirection: AxisDirection.up,
+                    ),
+                  );
+                },
+                child: CustomCircleAvatar(
+                  imageSource:
+                      'https://p4.wallpaperbetter.com/wallpaper/322/317/310/look-face-style-portrait-makeup-hd-wallpaper-preview.jpg',
+                  avatarRadius: 30.0,
+                  isAssetImage: false,
+                ),
               ),
               SizedBox(
                 width: 10.0,
