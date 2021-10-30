@@ -1,16 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:salony_from_scratch/components/constants.dart';
 import 'package:salony_from_scratch/components/circleAvatar.dart';
-import 'package:salony_from_scratch/components/custom_page_router_animation.dart';
-import 'package:salony_from_scratch/ui/edit_profile_screen.dart';
+import 'package:salony_from_scratch/components/edit_profile_textfield.dart';
 
-//Main Profile State.
-class UserProfile extends StatelessWidget {
+class EditProfile extends StatefulWidget {
+  @override
+  _EditProfileState createState() => _EditProfileState();
+}
+
+class _EditProfileState extends State<EditProfile> {
+  TextEditingController nameController = TextEditingController(
+    text: "User Name",
+  );
+  TextEditingController bioController = TextEditingController(
+    text: "Bio Here",
+  );
+  TextEditingController birthDateController = TextEditingController(
+    text: "1998",
+  );
+  TextEditingController locationController = TextEditingController(
+    text: "Egypt,Cairo",
+  );
+  TextEditingController linkController = TextEditingController(
+    text: "http://www.test.com",
+  );
+
+  @override
+  void dispose() {
+    nameController.dispose();
+    bioController.dispose();
+    birthDateController.dispose();
+    locationController.dispose();
+    linkController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     var oneThirdScreenHeight = screenSize.height / 3;
-    // var space = screenSize.height - (oneThirdScreenHeight - 75.0);
     return Scaffold(
       body: Stack(
         children: [
@@ -25,58 +53,6 @@ class UserProfile extends StatelessWidget {
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,
-              ),
-            ),
-          ),
-          //Back Button.
-          Positioned(
-            top: 40.0,
-            left: 15.0,
-            child: Container(
-              width: 35.0,
-              height: 35.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(25.0),
-                ),
-                color: Color(0xFFF5989D),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.arrow_back),
-                color: Colors.white,
-                iconSize: 20.0,
-              ),
-            ),
-          ),
-          //Edit Button.
-          Positioned(
-            top: 40.0,
-            right: 15.0,
-            child: Container(
-              width: 35.0,
-              height: 35.0,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.all(
-                  Radius.circular(25.0),
-                ),
-                color: Color(0xFFF5989D),
-              ),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    AnimatedRouting(
-                      childScreen: EditProfile(),
-                      transitionDirection: AxisDirection.down,
-                    ),
-                  );
-                },
-                icon: Icon(Icons.settings),
-                color: Colors.white,
-                iconSize: 20.0,
               ),
             ),
           ),
@@ -99,6 +75,80 @@ class UserProfile extends StatelessWidget {
                     'https://p4.wallpaperbetter.com/wallpaper/322/317/310/look-face-style-portrait-makeup-hd-wallpaper-preview.jpg',
                 avatarRadius: 55.0,
                 isAssetImage: false,
+              ),
+            ),
+          ),
+          //Hover Container.
+          Positioned(
+            top: 0.0,
+            child: Container(
+              width: screenSize.width,
+              height: oneThirdScreenHeight + 40.0,
+              color: Colors.white.withOpacity(0.7),
+            ),
+          ),
+          //Back Button.
+          Positioned(
+            top: 40.0,
+            left: 15.0,
+            child: Container(
+              width: 35.0,
+              height: 35.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25.0),
+                ),
+                color: Color(0xFFF5989D),
+              ),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: Icon(Icons.close),
+                color: Colors.white,
+                iconSize: 20.0,
+              ),
+            ),
+          ),
+          //Edit Cover Photo Button.
+          Positioned(
+            top: 40.0,
+            right: 15.0,
+            child: Container(
+              width: 35.0,
+              height: 35.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25.0),
+                ),
+                color: Color(0xFFF5989D),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.add_a_photo),
+                color: Colors.white,
+                iconSize: 20.0,
+              ),
+            ),
+          ),
+          //Edit Profile Picture Button.
+          Positioned(
+            top: oneThirdScreenHeight - 30.0,
+            left: (screenSize.width * 0.5) + 30.0,
+            child: Container(
+              width: 35.0,
+              height: 35.0,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(25.0),
+                ),
+                color: Color(0xFFF5989D),
+              ),
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.add_a_photo),
+                color: Colors.white,
+                iconSize: 20.0,
               ),
             ),
           ),
@@ -173,15 +223,8 @@ class UserProfile extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Text(
-                        "User Name",
-                        style: TextStyle(
-                          fontFamily: KPrimaryFontFamily,
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700,
-                          height: 1.0,
-                        ),
+                      child: EditProfileTextField(
+                        controller: nameController,
                       ),
                     ),
                   ),
@@ -230,15 +273,8 @@ class UserProfile extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Text(
-                        "Bio here",
-                        style: TextStyle(
-                          fontFamily: KPrimaryFontFamily,
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700,
-                          height: 1.0,
-                        ),
+                      child: EditProfileTextField(
+                        controller: bioController,
                       ),
                     ),
                   ),
@@ -293,15 +329,8 @@ class UserProfile extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              child: Text(
-                                "1998",
-                                style: TextStyle(
-                                  fontFamily: KPrimaryFontFamily,
-                                  fontSize: 18.0,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.0,
-                                ),
+                              child: EditProfileTextField(
+                                controller: birthDateController,
                               ),
                             ),
                           ),
@@ -354,15 +383,8 @@ class UserProfile extends StatelessWidget {
                                   ),
                                 ),
                               ),
-                              child: Text(
-                                "Egypt, Cairo",
-                                style: TextStyle(
-                                  fontFamily: KPrimaryFontFamily,
-                                  fontSize: 18.0,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w700,
-                                  height: 1.0,
-                                ),
+                              child: EditProfileTextField(
+                                controller: locationController,
                               ),
                             ),
                           ),
@@ -415,14 +437,41 @@ class UserProfile extends StatelessWidget {
                           ),
                         ),
                       ),
-                      child: Text(
-                        " https://www.temporary-url.com/8476E",
-                        style: TextStyle(
-                          fontFamily: KPrimaryFontFamily,
-                          fontSize: 18.0,
-                          color: Colors.black,
-                          fontWeight: FontWeight.w700,
-                          height: 1.0,
+                      child: EditProfileTextField(
+                        controller: linkController,
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 30.0,
+                  ),
+                  //Confirm Button.
+                  Center(
+                    child: Container(
+                      width: 110.0,
+                      height: 35.0,
+                      child: ElevatedButton(
+                        style: ButtonStyle(
+                          elevation: MaterialStateProperty.all(5.0),
+                          backgroundColor: MaterialStateProperty.all(
+                            Color(0xFFf0a3ad),
+                          ),
+                          shape:
+                              MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(45.0),
+                            ),
+                          ),
+                        ),
+                        onPressed: () {},
+                        child: Text(
+                          "Confirm",
+                          style: TextStyle(
+                            fontFamily: KPrimaryFontFamily,
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 18.0,
+                          ),
                         ),
                       ),
                     ),
